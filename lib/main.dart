@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 Card(
                   child: ListTile(
                     leading: Icon(Icons.person),
-                    title: Text("Dava Ganteng"),
+                    title: Text("Jessie"),
                     subtitle: Text("Hi"),
                     trailing: Text("50", style: TextStyle(color: Colors.green)),
                   ),
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 ListTile(
                   leading: Icon(Icons.person),
-                  title: Text("Dava Ganteng"),
+                  title: Text("Jessa"),
                   subtitle: Row(
                     children: [
                       Icon(Icons.call_received, size: 16, color: Colors.green),
