@@ -137,6 +137,76 @@ class _HomePageState extends State<HomePage> {
                   elevation: 5,
                   child: ListTile(
                     leading: Icon(Icons.person),
+                    title: Text("Dava"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Dava"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Dava"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Dava"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Dava"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Dava"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Dava"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
                     title: Text("Jessie"),
                     subtitle: Text("Halo"),
                     trailing: Text("49", style: TextStyle(color: Colors.green)),
