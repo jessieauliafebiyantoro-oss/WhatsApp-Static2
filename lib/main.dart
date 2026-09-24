@@ -41,18 +41,100 @@ class _HomePageState extends State<HomePage> {
         body: TabBarView(
           children: [
             // CHAT
-            Column(
+            ListView(
               children: [
                 Card(
+                  elevation: 5,
                   child: ListTile(
                     leading: Icon(Icons.person),
-                    title: Text("Jessie"),
-                    subtitle: Text("Hi"),
+                    title: Text("Dava Ganteng"),
+                    subtitle: Text("iya emang ganteng"),
                     trailing: Text("50", style: TextStyle(color: Colors.green)),
                   ),
                 ),
 
                 Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Jessie Cantik"),
+                    subtitle: Text("iya emang cantik"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Helena My Besti"),
+                    subtitle: Text("Hallo"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Mingyu"),
+                    subtitle: Text("p"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Nisa"),
+                    subtitle: Text("Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Yuni"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Ari"),
+                    subtitle: Text("Jes, mau nanya"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Raqilla"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Andin"),
+                    subtitle: Text("Hallo Jes"),
+                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+
+                Card(
+                  elevation: 5,
                   child: ListTile(
                     leading: Icon(Icons.person),
                     title: Text("Jessie"),
@@ -75,7 +157,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 ListTile(
                   leading: Icon(Icons.person),
-                  title: Text("Jessa"),
+                  title: Text("Dava Ganteng"),
                   subtitle: Row(
                     children: [
                       Icon(Icons.call_received, size: 16, color: Colors.green),
