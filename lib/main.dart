@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_lanjut/detail.chat.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
   }
 }
 
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("WhatsApp"),
+          title: Text('Whatsapp'),
           backgroundColor: Colors.green,
           bottom: TabBar(
             tabs: [
@@ -40,213 +41,254 @@ class _HomePageState extends State<HomePage> {
 
         body: TabBarView(
           children: [
-            // CHAT
+            // ================= CHAT =================
             ListView(
               children: [
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava Ganteng"),
-                    subtitle: Text("iya emang ganteng"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: InkWell(
+                    onTap: () {
+                      print("Chat ditekan");
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DetailChat()),
+                      );
+                    },
+                    child: Card(
+                      elevation: 30,
+                      child: ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text("dava"),
+                        subtitle: Text("iyaa beyy"),
+                        trailing: Text(
+                          '999+',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
 
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Jessie Cantik"),
-                    subtitle: Text("iya emang cantik"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: InkWell(
+                    onTap: () {
+                      print("Chat ditekan");
+                    },
+                    child: Card(
+                      elevation: 30,
+                      child: ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text("rara"),
+                        subtitle: Text("makasih ya"),
+                        trailing: Text(
+                          '67',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
 
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Helena My Besti"),
-                    subtitle: Text("Hallo"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: InkWell(
+                    onTap: () {
+                      print("Chat ditekan");
+                    },
+                    child: Card(
+                      elevation: 30,
+                      child: ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text("Qila"),
+                        subtitle: Text("Beli jco yuu"),
+                        trailing: Text(
+                          '5',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
 
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Mingyu"),
-                    subtitle: Text("p"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: InkWell(
+                    onTap: () {
+                      print("Chat ditekan");
+                    },
+                    child: Card(
+                      elevation: 30,
+                      child: ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text("Caca"),
+                        subtitle: Text("main yu saa"),
+                        trailing: Text(
+                          '999+',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
 
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Nisa"),
-                    subtitle: Text("Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: InkWell(
+                    onTap: () {
+                      print("Chat ditekan");
+                    },
+                    child: Card(
+                      elevation: 30,
+                      child: ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text("saa"),
+                        subtitle: Text("bagus bgt bunganya"),
+                        trailing: Text(
+                          '100',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
 
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Yuni"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Ari"),
-                    subtitle: Text("Jes, mau nanya"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Raqilla"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Andin"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Dava"),
-                    subtitle: Text("Hallo Jes"),
-                    trailing: Text("50", style: TextStyle(color: Colors.green)),
-                  ),
-                ),
-
-                Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Jessie"),
-                    subtitle: Text("Halo"),
-                    trailing: Text("49", style: TextStyle(color: Colors.green)),
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: InkWell(
+                    onTap: () {
+                      print("Chat ditekan");
+                    },
+                    child: Card(
+                      elevation: 30,
+                      child: ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text("asmiz"),
+                        subtitle: Text("caffe yuk"),
+                        trailing: Text(
+                          '18',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
 
-            // STATUS
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.person)),
-              title: Text("My Status"),
-              subtitle: Text("Tap to add status update"),
+            // ================= STATUS =================
+            Padding(
+              padding: EdgeInsets.only(left: 30, right: 30),
+              child: ListView(
+                children: [
+                  Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.person),
+                      title: Text("Status saya"),
+                      subtitle: Text("ketuk untuk menambahkan status"),
+                      trailing: Icon(Icons.add_circle, color: Colors.green),
+                    ),
+                  ),
+
+                  Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.person),
+                      title: Text("Labuanimek"),
+                      subtitle: Text("Labujemaah"),
+                    ),
+                  ),
+
+                  Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.person),
+                      title: Text("Caca"),
+                      subtitle: Text("Makan makan bunn"),
+                    ),
+                  ),
+
+                  Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.person),
+                      title: Text("Rara"),
+                      subtitle: Text(
+                        "Arisan bunda bunda kita ada di saung kecil sunda",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
 
-            // CALL
-            Column(
+            // ================= CALLS =================
+            ListView(
+              padding: EdgeInsets.only(left: 30, right: 30),
               children: [
-                ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("Dava Ganteng"),
-                  subtitle: Row(
-                    children: [
-                      Icon(Icons.call_received, size: 16, color: Colors.green),
-                      Text("  Today, 10:30"),
-                    ],
+                Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.call),
+                      title: Text('lele'),
+                      subtitle: Text(
+                        '15 minutes ago',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    ),
                   ),
-                  trailing: Icon(Icons.call),
                 ),
 
-                ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("Jessie"),
-                  subtitle: Row(
-                    children: [
-                      Icon(Icons.call_made, size: 16, color: Colors.red),
-                      Text("  Yesterday, 19:45"),
-                    ],
+                Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.call),
+                      title: Text('dava'),
+                      subtitle: Text('30 minutes ago'),
+                    ),
                   ),
-                  trailing: Icon(Icons.videocam),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.call),
+                      title: Text('ica'),
+                      subtitle: Text('1 hour ago'),
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.call),
+                      title: Text('rara'),
+                      subtitle: Text('2 hours ago'),
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: Icon(Icons.call),
+                      title: Text('Qila'),
+                      subtitle: Text('3 hours ago'),
+                    ),
+                  ),
                 ),
               ],
             ),
