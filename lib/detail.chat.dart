@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+// membuat detail data pesan
+class Message {
+  final String text;
+  final bool isMe; 
+
+  Message({required this.text, required this.isMe});
+}
+
 class DetailChat extends StatefulWidget {
   const DetailChat({super.key});
 
@@ -8,22 +16,40 @@ class DetailChat extends StatefulWidget {
 }
 
 class _DetailChatState extends State<DetailChat> {
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _chatController = TextEditingController();
 
-  List<String> pesan = [];
+  final ScrollController _scrollController = ScrollController();
 
-  void kirimPesan() {
-    if (_controller.text.isNotEmpty) {
-      setState(() {
-        pesan.add(_controller.text);
-        _controller.clear();
-      });
-    }
+  final List<Message> _messages = [
+    Message(text: "Hi!", isMe: false),
+    Message(text: "Hi juga! Bagaimana belajar flutter?", isMe: true),
+    Message(text: "Mudah, cuman widget2 aja nih", isMe: false),
+  ];
+
+  void _sendMessage() {
+    if (_chatController.text.trim().isEmpty) return;
+
+    setState(() {
+      _messages.add(Message(text: _chatController.text, isMe: true));
+    });
+
+    _chatController.clear();
+
+    Future.delayed(const Duration(milliseconds: 100), () {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _chatController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -42,119 +68,52 @@ class _DetailChatState extends State<DetailChat> {
           children: [
             const Padding(
               padding: EdgeInsets.only(right: 10),
-              child: CircleAvatar(
-                child: Icon(Icons.person),
-              ),
+              child: CircleAvatar(child: Icon(Icons.person)),
             ),
             const Text("dava"),
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.videocam),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.call),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
-          ),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.videocam)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.call)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
         ],
       ),
       body: Column(
         children: [
           Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(8),
-              children: [
-                Align(
-                  alignment: Alignment.centerRight,
+            child: ListView.builder(
+              controller: _scrollController,
+              padding: const EdgeInsets.all(20),
+              itemCount: _messages.length,
+              itemBuilder: (context, index) {
+                final msg = _messages[index];
+
+                return Align(
+                  alignment: msg.isMe
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
                   child: Container(
                     margin: const EdgeInsets.symmetric(vertical: 5),
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.green[50],
+                      color: msg.isMe ? Colors.green[100] : Colors.green[300],
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Text('Hi!'),
+                    child: Text(msg.text),
                   ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.yellow[50],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      'Hi juga! Bagaimana belajar flutter ?',
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.green[50],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      'Mudah, cuman widget2 aja nih',
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.yellow[50],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      'Sudah paham berapa widget? Wkwkwk',
-                    ),
-                  ),
-                ),
-                ...pesan.map(
-                  (text) => Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(vertical: 5),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.green[50],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(text),
-                    ),
-                  ),
-                ),
-              ],
+                );
+              },
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: 6,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
             color: Colors.white,
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
-                    controller: _controller,
-                    onSubmitted: (_) {
-                      kirimPesan();
-                    },
+                    controller: _chatController,
                     decoration: InputDecoration(
                       hintText: 'Tulis pesan...',
                       prefixIcon: const Icon(
@@ -176,6 +135,7 @@ class _DetailChatState extends State<DetailChat> {
                         vertical: 10,
                       ),
                     ),
+                    onSubmitted: (value) => _sendMessage(),
                   ),
                 ),
                 const SizedBox(width: 6),
@@ -183,11 +143,8 @@ class _DetailChatState extends State<DetailChat> {
                   radius: 24,
                   backgroundColor: Colors.blueAccent,
                   child: IconButton(
-                    onPressed: kirimPesan,
-                    icon: const Icon(
-                      Icons.send,
-                      color: Colors.white,
-                    ),
+                    onPressed: _sendMessage,
+                    icon: const Icon(Icons.send, color: Colors.white),
                   ),
                 ),
               ],
